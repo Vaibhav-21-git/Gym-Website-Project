@@ -1,0 +1,75 @@
+{% load static %}
+
+<footer>
+  <div class="row no-gutters">
+    <div class="col-lg-4">
+      <div>
+        <img src="{% static 'images/logo.png' %}" alt="" style="width: 30%;" />
+        <h5>Gym Name</h5>
+        <div class="mx-auto about-us">
+          <p>{{ info.bio }}</p>
+        </div>
+      </div>
+      <div class="footer-icon">
+        <a href="{{ info.instagram_link }}" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="{{ info.twitter_link }}" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="{{ info.facebook_link }}" class="facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div class="col-lg-4 mt-4">
+      <div class="useful-links">
+        <h5>لینک های مفید</h5>
+        <ul>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'profile' %}">پروفایل کاربری</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}">ورود به سایت</a></li>
+          {% endif %}
+          <li><a href="https://www.menshealth.com/">مقالات خارجی</a></li>
+          <li><a href="https://www.calculator.net/bmi-calculator.html">BMI محاسبه </a></li>
+          <li><a href="{% url 'gallery' %}">گالری</a></li>
+        </ul>
+      </div>
+
+      <div class="newsletters p-3">
+        <div class="mb-2 text-white"><h5>:از اخرین اطلاعیه های سایت باخبر شوید</h5></div>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="input-group">
+            <button type="submit" class="btn shadow-none" name="submit_footer_subscribe">تایید</button>
+            <input type="email" class="form-control text-right shadow-none" name="eamil_subscribe" placeholder="ایمیل خود را وارد کنید"/>
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-4 contact-us mt-4">
+      <h5>ارتباط با ما</h5>
+      <ul class="footer-info">
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <span>: آدرس ما</span>
+          {{ info.address }}        
+</li>
+        <li>
+          <i class="fa fa-phone"></i>
+          <span>: ایمیل</span>
+          {{ info.email }}
+        </li>
+
+        <li>
+          <i class="fa fa-envelope"></i>
+          <span>: تلفن ما</span>
+          {{ info.phone }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lower-footer">
+    © 2020 Copyright :
+    <a href="{% url 'index' %}"> My Gym</a>
+  </div>
+</footer>

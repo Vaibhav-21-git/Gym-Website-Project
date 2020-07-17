@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>پروژه باشگاه بدنسازی | تکمیل ثبت نام  </title>
+    <link rel="stylesheet" href="{% static 'css/successful-payment.css' %}" />
+</head>
+
+<body>
+    <h1>ثبت نام کلاس های شما با موفقیت انجام شد</h1>
+    <h3>{{id}} : شناسه ثبت نام</h3>
+    
+    <div class="buttons">
+    <a href="{% url 'index' %}">بازگشت به صفحه اصلی</a>
+    <a href="{% url 'profile' %}">بازگشت به پروفایل کاربری</a>
+    </div>
+</body>

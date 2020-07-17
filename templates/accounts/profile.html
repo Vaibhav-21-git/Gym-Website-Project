@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% block title %}| پنل کاربری {% endblock %}
+{% block content %}
+{% load humanize %}
+
+
+<!--Banner-->
+<section>
+  <div class="banner" style="background-image: url('{{ banner.image.url }}');">
+    {% include 'partials/alerts.html' with x="50" %}
+
+    <h1>{{banner.title}} </h1>
+    <span style="z-index: 2;">به پنل کاربری خود خوش آمدید {{user.username}}</span>
+  </div>
+</section>
+
+{% if email_messages %}
+<section class="container my-5">
+  <span class="simple-title">پیام های ارسال شده</span>
+  <div id="Email">
+    {% for email in email_messages %}
+    <div class="card">
+
+      <button class="collapse-button message-header" data-toggle="collapse" data-target="#collapse{{forloop.counter}}"
+        aria-expanded="false" aria-controls="collapse{{forloop.counter}}" id="heading{{forloop.counter}}"
+        style="direction: rtl;">
+        <i class="fa fa-envelope fa-lg ml-2" style="color:black;"></i>
+        {{ email.message_date }}
+      </button>
+
+      <div id="collapse{{forloop.counter}}" class="collapse" aria-labelledby="heading{{forloop.counter}}"
+        data-parent="#Email">
+        <div class="card-body">
+          <p class="message-content">{{email.message}}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+
+<section class="container">
+  {% if not cart.selected_class.all and not cart.online_selected_class.all %}
+  {% else %}
+  <span class="simple-title">کلاس های درخواست شده</span>
+  <table class="table registers-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>نام کلاس</th>
+        <th>هزینه کلاس (یک ماهه)</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="registers-body">
+
+
+      {% for class in cart.selected_class.all %}
+      <tr class="registered-class">
+        <td>{{ forloop.counter }}</td>
+        <td>{{ class.title }}</td>
+        <td>{{ class.price | intcomma:False }} تومان</td>
+        <td>
+          <div class="buttons">
+            {% include 'cart-remove-profile.html' with class_id=class.id id="class_id" %}
+            <a class="detail" href="{% url 'class_details' class.id %}">مشاهده جزئیات</a>
+          </div>
+         
+        </td>
+      </tr>
+
+      
+      {% endfor %}
+     
+     
+      {% for class in cart.online_selected_class.all %}
+      <tr class="registered-class">
+        <td>{{ forloop.counter|add:index }}</td>
+        <td>{{ class.title }}</td>
+        <td>{{ class.price | intcomma:False }} تومان</td>
+        <td>
+          <div class="buttons">
+              <form method="POST" action={% url 'update_online' %} data-endpoint="{% url 'update_online' %}" class="button-class class_form">
+                {% csrf_token %}
+                <input type="hidden" name='online_class_id' value= '{{ class.id }}'/>
+              <input class="cancel" type="submit" value="انصراف"/>      
+          </form>
+            <a class="detail" href="{% url 'class_details' class.id %}">مشاهده جزئیات</a>
+          </div>
+         
+        </td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>{{ object.register_id }}<span class="payment-info"> :شناسه ثبت نام</span></p>
+    <p class="total"><span class="payment-info"> هزینه کل: </span>{{ cart.total| intcomma:False }} </p>
+    <input class="payment" type="submit" name="checkout" value="پرداخت">
+  </form>
+  {% endif %}
+</section>
+<!-- =================================================================== -->
+<div class="cart-item-remove-form" style="display:none;">
+  {% include 'cart-remove-profile.html'%}
+</div>
+<!-- =================================================================== -->
+<section class="container my-5">
+  <span class="simple-title">وضعیت کلاس ها</span>
+  <div id="accordion">
+    <div class="card">
+      <button class="collapse-button class-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+        aria-controls="collapseOne" id="headingOne">
+        کلاس های فعال
+      </button>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          {% if not active_cart_show %}
+          <p> هیچ کلاسی موجود نیست </p>
+          {% else %}
+          {% for id,items in final_active_list %}
+          <div class="register-info">
+            <p class="ids"> {{id}}<span class="info"> :شناسه ثبت نام</span></p>
+            <p class="classes"><span class="info"> کلاس های ثبت نام شده: </span> {{items}} </p>
+          </div>
+          {% endfor %}
+
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <button class="collapse-button  collapsed class-info" data-toggle="collapse" data-target="#collapseTwo"
+        aria-expanded="false" aria-controls="collapseTwo" id="headingTwo">
+        کلاس های منقضی شده
+      </button>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          {% if not expired_cart_show %}
+          <p> هیچ کلاسی موجود نیست </p>
+          {% else %}
+          {% for id,items in final_expired_list %}
+          <div class="register-info">
+            <p class="ids">{{id}} <span class="info">:شناسه ثبت نام</span></p>
+            <p class="classes"><span class="info"> کلاس های ثبت نام شده: </span> {{items}} </p>
+          </div>
+          {% endfor %}
+
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="container">
+  <span class="simple-title">تنظیمات</span>
+<form action="{% url 'profile' %}" method="POST" class="settings">
+  {% csrf_token %}
+  <div class="subscribe">
+    <p class="ml-3 pt-3">دریافت اطلاعیه ها و خبر ها</p>
+    {% if checked %}
+    <input type="checkbox" name="subscribe_checkbox" class="ml-3" checked>
+    {% else %}
+    <input type="checkbox" name="subscribe_checkbox" class="ml-3">
+    {% endif %}
+  </div>
+ 
+ <label for="password">: تغییر رمز عبور</label>
+  <input type="password" name="change_password" id="password">
+ 
+
+  <input type="submit" name="submit_changes" value="ذخیره" class="save my-3">
+</form>
+</section>
+{% endblock %}

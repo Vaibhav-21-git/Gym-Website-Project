@@ -1,0 +1,40 @@
+{% load humanize %}
+<form method="POST" action={% url 'update' %} data-endpoint="{% url 'update' %}" class="button-class class_form">
+    {% csrf_token %}
+    <input type="hidden" name='{{id}}' value= '{{ class.id }}'/>
+   
+        
+            <a class="details" href="{% url 'class_details' class.id %}">جزئیات بیشتر<i class="fas fa-eye"></i></a>
+            
+           
+            {% if user.is_authenticated %}
+
+                {% if class.title in cart_items %}
+                
+                    <p class="registered">ثبت نام شده</p>
+                
+                  {% else %}
+                  <span class="price">{{ class.price | intcomma:False }} تومان<i class="fas fa-tags"></i></span>   
+                <div class="submit-span">
+                 {% if class in cart.selected_class.all and class.title not in cart_items %}
+                    <input type="submit" value="انصراف" class="input">      
+                {% elif class not in cart.selected_class.all and class.title not in cart_items %}
+                    <input type="submit" value="ثبت نام" class="input">
+                {% endif %}
+                </div>    
+               
+                {% endif %}
+                
+
+            {% else %}
+            <span class="price">{{ class.price | intcomma:False }} تومان<i class="fas fa-tags"></i></span> 
+            <a style="border-left: solid #1b1b1b 2px;" href="{% url 'register' %}">ثبت نام<i class="fas fa-clipboard"></i></a>
+
+            {% endif %}
+
+
+
+
+
+
+</form>

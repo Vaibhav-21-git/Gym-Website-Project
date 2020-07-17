@@ -1,0 +1,141 @@
+{% load static %}
+<header style="z-index: 4;">
+  <div>
+    <div class="toggle">
+      <ul class="navbar-nav flex-row">
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'profile'%}" class="nav-link px-2"><i class="fas fa-user-cog"></i><span class="cart">{{ cart_count }}</span></a>
+          
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'logout'%}" class="nav-link px-2"><i class="fas fa-sign-out-alt fa-flip-horizontal"></i></a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a href="{% url 'register'%}" class="nav-link px-2"><i class="fas fa-user-plus"></i><span class="cart">{{ cart_count }}</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'login'%}" class="nav-link px-2"><i class="fas fa-sign-out-alt"></i></a>
+        </li>
+        {% endif %}
+
+        <li class="nav-item nav-divider">
+          <a href="{{ info.instagram_link }}" class="nav-link px-2"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ info.facebook_link }}" class="nav-link px-2"><i class="fab fa-facebook"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ info.instagram_link }}" class="nav-link px-2"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3"><i class="fa fa-bars menu"></i></a>
+        </li>
+      </ul>
+      <a href="{% url 'index' %}" class="navbar-brand2"><img src="{% static 'images/logo.png' %}" alt="" />
+        <h5>Gym Name</h5>
+      </a>
+    </div>
+
+    <div class="social-nav flex-row">
+      <ul class="navbar-nav flex-row">
+
+  {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'profile'%}" class="nav-link px-2"><i class="fas fa-user-cog"></i><span class="cart">{{ cart_count }}</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link px-2"><i class="fas fa-sign-out-alt  fa-flip-horizontal"></i></a>
+          <form action="{% url 'logout' %}" method="POST" id="logout">
+            {% csrf_token %}
+            <input type="hidden">
+          </form>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a href="{% url 'register'%}" class="nav-link px-2"><i class="fas fa-user-plus"></i><span class="cart">{{ cart_count }}</span></a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'login'%}" class="nav-link px-2"><i class="fas fa-sign-out-alt"></i></a>
+        </li>
+        {% endif %}
+
+        <li class="nav-item nav-divider">
+          <a href="{{ info.twitter_link }}" class="nav-link px-2"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ info.facebook_link }}" class="nav-link px-2"><i class="fab fa-facebook"></i></a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ info.instagram_link }}" class="nav-link px-2"><i class="fab fa-instagram"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ul class="navbar-nav ml-auto pages">
+    {% if '/contact_us/' == request.path %}
+    <li class="nav-item active">
+      {% else %}
+    <li class="nav-item">
+      {% endif %}
+      <a href="{% url 'contact_us' %}" class="nav-link">ارتباط با ما </a></li>
+
+    {% if '/gallery/' == request.path %}
+    <li class="nav-item active">
+      {% else %}
+    <li class="nav-item">
+      {% endif %}
+      <a href="{% url 'gallery' %}" class="nav-link">گالری</a></li>
+
+    {% if '/our_team/' == request.path %}
+    <li class="nav-item active">
+      {% else %}
+    <li class="nav-item">
+      {% endif %}
+      <a href="{% url 'our_team' %}" class="nav-link">مربیان</a></li>
+
+    {% if '/workouts/' == request.path %}
+    <li class="nav-item active">
+      {% else %}
+    <li class="nav-item">
+      {% endif %}
+        <div class="dropdown">
+          <a href="#" class="nav-link">تمرین خانگی</a>
+          <div class="dropdown-content">
+            <a href="{% url 'beginner_workouts' %}" class="nav-link">سطح مبتدی</a>
+            <a href="{% url 'intermediate_workouts' %}" class="nav-link">سطح متوسط</a>
+            <a href="{% url 'advanced_workouts' %}" class="nav-link">سطح پیشرفته</a>
+          </div>
+        </div>
+        </div>
+      </li>
+      {% if '/classes/' in request.path %}
+      <li class="nav-item active">
+        {% else %}
+      <li class="nav-item">
+        {% endif %} 
+          <div class="dropdown">
+          <a class="nav-link">کلاس ها</a>
+          <div class="dropdown-content">
+            <a href="{% url 'presence_classes' %}">کلاس های حضوری</a>
+            <a href="{% url 'public_classes' %}">کلاس های آنلاین عمومی</a>
+            <a href="{% url 'private_classes' %}">کلاس های آنلاین خصوصی</a>
+          </div>
+        </div>
+      </li>
+
+    {% if '/' == request.path %}
+    <li class="nav-item active">
+      {% else %}
+    <li class="nav-item">
+      {% endif %}
+      <a href="{% url 'index' %}" class="nav-link">خانه</a></li>
+
+  </ul>
+  <a href="{% url 'index' %}" class="navbar-brand"><img src="{% static 'images/logo.png' %}" alt="" />
+    <h5>Gym Name</h5>
+  </a>
+</header>
