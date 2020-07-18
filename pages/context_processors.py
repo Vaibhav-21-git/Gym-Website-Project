@@ -35,7 +35,7 @@ def info(request):
                     messages.error(request, 'ایمیل شما قبلا ثبت شده است')
                     
     context = {
-        'info' : info[0],
+        'info' : info.first(),
         
     }
 

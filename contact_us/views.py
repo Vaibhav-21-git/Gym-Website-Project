@@ -34,7 +34,7 @@ def contact_us(request):
         return HttpResponseRedirect(request.path_info)
     context = {
         'banner' : banner,
-        'informations' : info[0],
+        'informations' : info.first(),
     }
 
 
