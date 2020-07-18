@@ -1,0 +1,145 @@
+@import "Base";
+@import "NavBar";
+@import "Footer";
+@import "Banner";
+@import "Title";
+@import "Pagination";
+.team-card {
+  width: 100%;
+  border: none;
+  background-color: $FourthColor;
+  overflow: hidden;
+  margin: 1em;
+  padding: 1em 0;
+  border-radius: 5px;
+  height: 470px;
+
+  .team-img {
+    height: 100% !important;
+    width: 98% !important;
+    padding: 10px;
+  }
+  .team-body {
+    position: absolute;
+    width: 100%;
+    bottom: -18em;
+    right: 0em;
+    padding: 0 15px;
+    padding-top: 10px;
+    background-color: $SecondColor;
+    color: black;
+    transition: all 0.6s;
+
+    & > a {
+      color: white;
+      text-decoration: none;
+      background-color: #1b1b1b;
+      width: 100%;
+      display: block;
+      padding: 10px;
+
+      &:hover {
+      background-color: #080808;
+    }
+
+     & > i {
+      color: white;
+      padding-left: 10px;
+    }
+    }
+    
+  }
+
+  &:hover .team-body {
+    bottom: 0px;
+    transition: 0.6s;
+    opacity: 0.9;
+  }
+}
+
+.coach-table {
+  width: 100%;
+  background-color: transparent;
+  direction: rtl;
+  tr {
+    &:not(:nth-of-type(4)) {
+      border-bottom: 1px solid black;
+    }
+    th {
+      
+     
+      white-space: nowrap;
+      color: black;
+    }
+    td {
+    
+      direction: rtl;
+      white-space: nowrap;
+      color: black;
+
+    }
+  }
+}
+
+.coach-social {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  i {
+    font-size: larger;
+    color: white;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.coach-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+  h3 {
+    font-size: 45px;
+    color: white;
+  }
+  .class-info{
+  height: 100px;
+  h5 {
+    margin-bottom: 1em;
+    color: black;
+    direction: rtl;
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 20spx;
+
+    &:first-of-type{
+      color: white;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}
+}
+
+.info{
+  margin-bottom: 1em;
+  height: 100px;
+  p{
+    font-size: calc(5px + 1vw);
+    margin: 0;
+  }
+}
+
+@media (max-width:767px){
+  .info{
+    margin-bottom: 1em;
+    height: 100px;
+    p{
+      font-size: calc(12px + 0.5vw);
+      margin: 0;
+    }
+  }
+}

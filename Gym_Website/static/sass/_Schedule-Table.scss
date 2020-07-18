@@ -1,0 +1,56 @@
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px;
+  white-space: nowrap;
+  direction: rtl;
+}
+
+.tab button {
+  background-color: $SecondColor;
+  outline: none;
+  cursor: pointer;
+  width: 100px;
+  font-weight: bolder;
+  border: none;
+  margin: 1px;
+  direction: rtl;
+}
+
+.tab button:hover {
+  background-color: $FourthColor;
+  color: white;
+}
+
+.tab button.active {
+  background-color: $FourthColor;
+  color: white;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+
+.schedule{
+background-color: $FourthColor;
+display: flex;
+direction: rtl;
+justify-content: space-between;
+align-items: center;
+margin: 5px auto;
+padding: 5px 30px;
+border-radius: 20px;
+width: 70%;
+border: solid $SecondColor 2px;
+  img{
+    width: calc(20px + 4vw);
+  }
+
+h5{
+  font-size: calc(1px + 3vw);
+}
+
+}
