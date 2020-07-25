@@ -50,23 +50,6 @@
     }
   }
 }
-.simple-button {
-  color: $FirstColor;
-  background-color: $SecondColor;
-  border: none;
-  padding: 10px 50px;
-  text-decoration: none !important;
-  font-size: larger;
-  margin-top: 1em;
-  width: 80%;
-  display: flex ;
-  justify-content: center ;
-  align-items: center ;
-  &:hover {
-    color: black;
-    background-color: white;
-  }
-}
 
 @media (max-width: 768px) {
   .galleries {

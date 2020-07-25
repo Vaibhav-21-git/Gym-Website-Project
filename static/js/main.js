@@ -12,10 +12,12 @@ $(document).ready(function () {
     touchDrag: false,
   });
 
+
+
+
   $(".team-carousel").owlCarousel({
     loop: true,
-    margin: 50,
-    autoplay: true,
+    margin: 30,
     responsive: {
       0: {
         items: 1,
@@ -28,6 +30,16 @@ $(document).ready(function () {
       },
     },
   });
+
+  $(".honor-carousel").owlCarousel({
+    
+    loop: true,
+    autoplay: true,
+    items:1,
+    nav:true,
+  });
+
+
 
   $(".overlay-gallery").magnificPopup({
     delegate: "a",
@@ -110,19 +122,6 @@ setTimeout(function(){
   $('#message').fadeOut('slow');
 }, 3000);
 
-  var Class1 = "تی آر ایکس";
-  var Class2 = "بدنسازی";
-  var Class3 = "فیتنس";
-  var Class4 = "بادی پامپ";
-  var Class5 = "یوگا";
-  var Class6 = "اسپینیگ";
-
-  $(".Class1").append(Class1);
-  $(".Class2").append(Class2);
-  $(".Class3").append(Class3);
-  $(".Class4").append(Class4);
-  $(".Class5").append(Class5);
-  $(".Class6").append(Class6);
 
   $(".menu").click(function () {
     $(".pages").toggleClass("active");
@@ -131,6 +130,7 @@ setTimeout(function(){
   $("#close").on("click", function () {
     $.magnificPopup.close();
   });
+
 
   $(function () {
     var selectedClass = "";
@@ -155,21 +155,47 @@ setTimeout(function(){
     });
   });
 
-  $(".timetable-controls ul li").on("click", function () {
-    var tsfilter = $(this).data("tsfilter");
-    $(".timetable-controls ul li").removeClass("active");
-    $(this).addClass("active");
+  $('.textarea').on('input', function () {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+  });
 
-    if (tsfilter == "all") {
-      $(".classtime-table").removeClass("filtering");
+  const toUp = document.querySelector('.scrollup');
+  window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 1000) {
+      toUp.classList.add("active");
     } else {
-      $(".classtime-table").addClass("filtering");
+      toUp.classList.remove("active");
     }
-    $(".ts-item").each(function () {
-      $(this).removeClass("show");
-      if ($(this).data("tsmeta") == tsfilter) {
-        $(this).addClass("show");
-      }
-    });
   });
 });
+
+function schedule(evt, button) {
+  var i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  document.getElementById(button).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+function filterActive(evt) {
+  var i, filters;
+
+  filters = document.getElementsByClassName("filter-check");
+  for (i = 0; i < filters.length; i++) {
+    filters[i].className = filters[i].className.replace("active-filter filter-check", "filter filter-check");
+  }
+  evt.currentTarget.className = ("filter filter-check", "active-filter filter-check");
+
+}
+
+AOS.init();

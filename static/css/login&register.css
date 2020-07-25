@@ -3,13 +3,44 @@
 }
 
 body {
-  background: url("/static/image/login_register.jpg") 50% 0 no-repeat fixed;
+  background: url("/static/images/login_register.jpg") no-repeat;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lower-footer {
+  color: white;
+  background-color: #ff1919;
+  padding: 0.8rem 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.lower-footer a {
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
 }
 
 .form {
   background-color: #1b1b1b;
   text-align: right;
   width: 40%;
+  border-radius: 10px;
 }
 
 .form form {
@@ -49,7 +80,7 @@ body {
 .form label {
   color: white;
   margin: 0;
-  margin-top: 15px;
+  margin-top: 8px;
   margin-bottom: 5px;
 }
 
@@ -60,7 +91,7 @@ body {
   text-align: center;
   display: block;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 15px;
   font-size: 20px;
   padding: 3px;
   border: none;
@@ -82,16 +113,18 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 65px;
-  font-size: calc(28px + 0.5vw);
+  height: 50px;
+  font-size: calc(20px + 0.5vw);
   padding-left: 45px;
   font-weight: bolder;
   margin-bottom: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .form .form-header i {
   color: #1b1b1b;
-  font-size: 50px;
+  font-size: 35px;
   margin: 0 15px;
 }
 
@@ -120,7 +153,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 10px;
+  margin: 7px;
   font-size: calc(12px + 0.5vw);
 }
 
@@ -145,20 +178,6 @@ body {
 .return:hover {
   text-decoration: none;
   color: black;
-}
-
-.lower-footer {
-  color: white;
-  background-color: #ff1919;
-  padding: 0.8rem 0;
-  text-align: center;
-  bottom: 0;
-}
-
-.lower-footer a {
-  color: black;
-  text-decoration: none;
-  font-weight: bolder;
 }
 
 @media (max-width: 955px) {

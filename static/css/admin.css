@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(235, 227, 227);
+}
+
+#header{
+    background: #1b1b1b;
+    color: white;
+}
+
+#branding h1{
+    color: #ff1919;
+}
+
+div.breadcrumbs{
+background: #ff1919;
+color: white;
+}
+.colMS table tbody a{
+color: black;
+}
+.colMS table caption{
+    background: #ff1919;
+}
+
