@@ -8,7 +8,7 @@ SECRET_KEY = '^3&!i9x-!-x263w&8uj61g0$e6y01t)$7-+5t2$f536=jk^0n3'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://noferesti.pythonanywhere.com/']
+ALLOWED_HOSTS = ['noferesti.pythonanywhere.com']
 
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
