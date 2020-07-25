@@ -88,7 +88,7 @@
     flex-shrink: 0.95;
     border-left: solid $FourthColor 2px;
     height: 100%;
-    
+
 
     i {
       color: $FourthColor;
@@ -113,9 +113,12 @@
       background-color: white;
       color: $FourthColor;
     }
-      &:active, &:focus{
-        outline: none;
-      }
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+
     i {
       color: $FourthColor;
       margin: 0 3px;
@@ -125,7 +128,7 @@
   }
 }
 
-.registered{
+.registered {
   margin: 0;
   color: $ThirdColor;
   background-color: $SecondColor;
@@ -136,72 +139,82 @@
   flex-shrink: 0.95;
   font-weight: bolder;
   border-left: solid $FourthColor;
-  
+
 
 }
 
-.submit-span{
+.submit-span {
 
   width: 100%;
-  input{
+
+  input {
     height: 100%;
     display: block;
   }
-  
- }
 
- .enroll
-  {
-    color: $ThirdColor;
-    background-color: $SecondColor;
-    border: none;
-    padding: 5px 2px;
+}
+
+.enroll {
+  color: $ThirdColor;
+  background-color: $SecondColor;
+  border: none;
+  padding: 5px 2px;
+  text-decoration: none;
+  font-size: calc(3px + 1vw);
+  width: 100%;
+
+
+  &:hover {
+    background-color: white;
+    color: $FourthColor;
     text-decoration: none;
-    font-size: calc(3px + 1vw);
-    width: 100%;
-
-
-    &:hover {
-      background-color: white;
-      color: $FourthColor;
-      text-decoration: none;
-      i {
-        color: $FourthColor;
-
-      }
-    }
 
     i {
-      color: white;
-      margin: 0 5px;
-      font-size: calc(1px + 1vw);
+      color: $FourthColor;
 
     }
-  
- }
+  }
 
-.classes{
+  i {
+    color: white;
+    margin: 0 5px;
+    font-size: calc(1px + 1vw);
+
+  }
+
+}
+
+.classes {
   margin: 0;
   padding: 0;
 }
 
 
-@media (max-width:600px){
-  .button-class{
-    a{
+@media (max-width:600px) {
+  .button-class {
+    a {
       font-size: 12px;
 
-      i{
+      i {
         font-size: 10px;
       }
     }
 
-    .price{
+    .price {
       font-size: 12px;
 
-      i{
+      i {
         font-size: 10px;
       }
     }
   }
+
+  .enroll {
+    font-size: 12px;
+
+    i {
+      font-size: 10px;
+    }
+  }
+
 }
