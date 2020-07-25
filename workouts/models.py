@@ -17,7 +17,6 @@ class Workouts(models.Model):
 
 
 class Workout_List(models.Model):
-
     class Grade(models.TextChoices):
             grade1  = 'مبتدی', "مبتدی"
             grade2 = 'متوسط', "متوسط"
@@ -31,7 +30,6 @@ class Workout_List(models.Model):
     
     def __str__(self):
         return self.title
-
     class Meta:
         verbose_name_plural = "فهرست تمرینات"
 

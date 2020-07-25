@@ -12,9 +12,12 @@ $(document).ready(function () {
     touchDrag: false,
   });
 
+
+
+
   $(".team-carousel").owlCarousel({
     loop: true,
-    margin: 50,
+    margin: 30,
     responsive: {
       0: {
         items: 1,
@@ -194,3 +197,5 @@ function filterActive(evt) {
   evt.currentTarget.className = ("filter filter-check", "active-filter filter-check");
 
 }
+
+AOS.init();

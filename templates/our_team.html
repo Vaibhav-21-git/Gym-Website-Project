@@ -7,7 +7,7 @@
   <section>
     <div class="banner"style="background-image: url('{{ banner.image.url }}');">
       {% include 'partials/alerts.html' with x="50" %}
-      <h1>{{banner.title}} </h1>
+      <h1 data-aos="fade-up" data-aos-duration="800">{{banner.title}} </h1>
       <div class="page-address">
         <span><i class="fa fa-home"></i></span>
         <span>مربیان</span>
@@ -27,8 +27,14 @@
           <img class="team-img" src="{{ coach.photo.url }}" alt="Card image cap" />
           <div class="team-body">
          
-              <div class="coach-header">
                 <h3>{{ coach.name }}</h3>
+              
+                <div class="coach-social-top">
+                  <a href="{{ coach.instagram_link }}"><i class="fab fa-instagram"></i></a>
+                  <a href="{{ coach.twitter_link }}"><i class="fab fa-twitter"></i></a>
+                  <a href="{{ coach.facebook_link}}"><i class="fab fa-facebook"></i></a>
+                </div>
+                <h4>: مشخصات مربی</h4>
                 <div class="info">
                   <p>{{ coach.info_1 }}</p>
                   <p>{{ coach.info_2 }}</p>
@@ -36,38 +42,17 @@
                   <p>{{ coach.info_4 }}</p>
                 </div>
                 <div class="class-info">
-                  <h5>مربی دوره های :</h5>
+                  <h4>: کلاس های مربی</h4>
                   <h5>{{ coach.classes }}</h5>
                 </div>
 
-              </div>
-              <table class="coach-table">
-                <tr>
-                  <th>سن</th>
-                  <td>{{ coach.age }}</td>
-                </tr>
+                <div class="coach-social-down">
+                  <a href="{{ coach.instagram_link }}"><i class="fab fa-instagram"></i></a>
+                  <a href="{{ coach.twitter_link }}"><i class="fab fa-twitter"></i></a>
+                  <a href="{{ coach.facebook_link}}"><i class="fab fa-facebook"></i></a>
+                </div>
   
-                <tr>
-                  <th>قد</th>
-                  <td>{{ coach.height }}</td>
-                </tr>
-  
-                <tr>
-                  <th>وزن</th>
-                  <td style=" direction: ltr;">{{ coach.weight }} kg</td>
-                </tr>
-                
-                <tr>
-                  <th>سابقه همکاری</th>
-                  <td>{{ coach.hire_date | timesince }}</td>
-                </tr>
-              </table>
-  
-              <div class="coach-social">
-                <a href="{{ coach.instagram_link }}"><i class="fab fa-instagram"></i></a>
-                <a href="{{ coach.twitter_link }}"><i class="fab fa-twitter"></i></a>
-                <a href="{{ coach.facebook_link}}"><i class="fab fa-facebook"></i></a>
-              </div>
+
             </div>
         </div> 
       {% endfor %}

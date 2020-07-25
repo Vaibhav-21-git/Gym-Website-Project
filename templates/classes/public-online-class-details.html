@@ -7,7 +7,7 @@
 <section>
   <div class="banner" style="background-image: url('{{ banner.image.url }}');">
     {% include 'partials/alerts.html' with x="50" %}
-    <h1>{{ banner.title }}</h1>
+    <h1 data-aos="fade-up" data-aos-duration="800">{{ banner.title }}</h1>
     <div class="page-address">
       <span><i class="fa fa-home"></i></span>
       <span> جزئیات کلاس </span>
@@ -27,7 +27,7 @@
 </section>
 
 <!--Live Stream-->
-<section class="live-stream container">
+<section class="live-stream container-fluid">
 
   <div class="h_iframe-aparat_embed_frame"> <span style="display: block;padding-top: 30%"></span><iframe scrolling="no"
       allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"

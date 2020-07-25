@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from classes.models import Class, PublicOnlineClass, PrivateOnlineClass
 from gallery.models import Gallery
 from coaches.models import Coach
-from contact_us.models import Contact_Info
 from .models import CarouselBanner, Honors
 from cart.models import Cart
 from registers.models import Register

@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>پروژه باشگاه بدنسازی {% block title %}{% endblock %}</title>
-
+  <link rel="icon" href="{% static 'images/logo.png' %}" type="image/icon type">
   <!-- Css Styles -->
   <link
     rel="stylesheet"
@@ -27,6 +27,8 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
   />
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   {% if '/' == request.path %}
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
 
@@ -80,7 +82,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="{% static 'js/main.js' %}"></script>
   <script src="{% static 'js/ajax.js' %}"></script>
   <script src="{% static 'js/csrf.ajax.js' %}"></script>
+
 </body>

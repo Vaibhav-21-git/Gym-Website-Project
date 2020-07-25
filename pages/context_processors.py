@@ -10,11 +10,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 def info(request):
-
-
     info = Contact_Info.objects.all()
-    if 'submit_footer_subscribe' in request.POST:
-        
+    if 'submit_footer_subscribe' in request.POST:    
         subscribe_email = request.POST.get('eamil_subscribe',None)
         if len(subscribe_email) != 0:
             email = Marketing.objects.filter(user__email=subscribe_email).first()
@@ -35,8 +32,7 @@ def info(request):
                     messages.error(request, 'ایمیل شما قبلا ثبت شده است')
                     
     context = {
-        'info' : info.first(),
-        
+        'info' : info.first(),  
     }
 
     all_users = User.objects.all()
@@ -50,7 +46,5 @@ def info(request):
         cart_obj, new_obj = Cart.objects.new_or_get(request.user)
         cart_count = cart_obj.selected_class.count() + cart_obj.online_selected_class.count()
         context.update({'cart_count' : cart_count})
-
-
-
+        
     return(context)

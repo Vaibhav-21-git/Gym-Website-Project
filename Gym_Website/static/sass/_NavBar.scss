@@ -5,7 +5,13 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+i {
+  color: $SecondColor;
 
+  &:hover{
+    color: white;
+  }
+}
 .navbar-brand,
 .navbar-brand2 {
   color: $SecondColor !important;
@@ -77,9 +83,7 @@ header {
   }
 }
 
-i {
-  color: $SecondColor;
-}
+
 
 .dropdown {
   position: relative;
@@ -103,7 +107,7 @@ i {
       color: $ThirdColor;
       position: relative;
       white-space: nowrap;
-      padding: 0 20px;
+      padding: 3px 20px;
       margin: 10px 0;
 
       &:after {
@@ -247,20 +251,5 @@ i {
     }
   }
 
-  .form-header {
-    background-color: $SecondColor;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 65px;
-    font-size: 40px;
-    padding-left: 25px;
 
-    i {
-      color: black;
-      font-size: 50px;
-      margin: 0 15px;
-
-    }
-  }
 }

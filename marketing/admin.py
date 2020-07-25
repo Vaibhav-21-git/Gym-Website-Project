@@ -10,7 +10,7 @@ class MarketingAdmin(admin.ModelAdmin):
             'user',
             'subscribed',
             'mailchimp_msg',
-            'mailchimp_subscribed'
+            'mailchimp_subscribed',
             'timestamp',
             'update'
         ]

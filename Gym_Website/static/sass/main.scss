@@ -9,6 +9,11 @@
 @import "Honors";
 @import "Parallax";
 @import "Magnicifent-Popup";
+@import "Scroll-Button";
+
+html {
+  scroll-behavior: smooth;
+}
 
 .simple-button {
   color: $FourthColor;

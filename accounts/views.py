@@ -13,7 +13,6 @@ from registers.models import Register
 from marketing.models import Marketing
 
 def register(request):
-
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -22,7 +21,6 @@ def register(request):
         password = request.POST['password']
         password_again = request.POST['password-again']
         
-    
         if password == password_again:
             if User.objects.filter(username=username).exists():
                 messages.error(request,'این نام کاربری از قبل وجود دارد')
@@ -40,11 +38,10 @@ def register(request):
         else:
             messages.error(request,'رمز عبور تکرار شده همسان نیست')
             return redirect('register')
-
     else:
         return render(request, 'accounts/register.html')
-def login(request):
 
+def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -74,8 +71,6 @@ def profile(request):
     cart_obj, cart_created = Cart.objects.new_or_get(user)
     register_obj, register_obj_created = Register.objects.new_or_get(user,cart_obj)
     subscribe_obj , created = Marketing.objects.get_or_create(user=user)
-
-    
     active_registers , expired_registers = Register.objects.get_user_registers(user)
 
     active_cart_registered=[]
@@ -83,16 +78,13 @@ def profile(request):
     active_cart_show = []
     register_id_show = []
 
-    
-
     for i in range(len(active_registers)):
         reg_user = active_registers[i]
         active_cart_registered.extend(Cart.objects.registered_carts(reg_user.cart))
 
     for user,reg_class in zip(active_registers,active_cart_registered):
         register_id_show.append(user.register_id)
-        
-        
+            
         if user.cart == reg_class:
             active_cart_info = []
             string_active_cart_info = ""
@@ -112,8 +104,7 @@ def profile(request):
 
             final_items = online_string_active_cart_info + " ، " + string_active_cart_info   
             active_cart_show.append(final_items)
-           
-            
+                  
     final_active_list = zip(register_id_show, active_cart_show)
 
 
@@ -124,15 +115,13 @@ def profile(request):
     expired_cart_show = []
     register_id_show = []
 
-
     for i in range(len(expired_registers)):
         reg_user = expired_registers[i]
         expired_cart_registered.extend(Cart.objects.registered_carts(reg_user.cart))
 
     for user,reg_class in zip(expired_registers,expired_cart_registered):
         register_id_show.append(user.register_id)
-        
-        
+             
         if user.cart == reg_class:
             expired_cart_info = []
             string_expired_cart_info = ""

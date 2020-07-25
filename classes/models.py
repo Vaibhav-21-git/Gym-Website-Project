@@ -4,7 +4,6 @@ from coaches.models import Coach
 from django.db.models.signals import post_save
 
 class Class(models.Model):
-
     class Time(models.TextChoices):
             time_1 = '10:00-14:00', "10:00-14:00"
             time_2 = '14:00-16:00', "14:00-16:00"
@@ -27,11 +26,9 @@ class Class(models.Model):
     thursday = models.CharField(max_length=100,choices=Time.choices, default=Time.closed,verbose_name="پنجشنبه")
     friday = models.CharField(max_length=100,choices=Time.choices, default=Time.closed,verbose_name="جمعه")
     saturday = models.CharField(max_length=100,choices=Time.choices, default=Time.closed,verbose_name="شنبه")
-
     
     def __str__(self):
         return self.title
-
     class Meta:
         verbose_name_plural = "کلاس های حضوری"
 
@@ -105,7 +102,7 @@ class PublicOnlineClass(models.Model):
 def set_presence_classes(sender, instance, created, *args, **kwrags):
     qs = Coach.objects.filter(id=instance.coach.id)
     if str(instance.title) not in qs[0].classes:
-            presence_classes = str(instance.title) + "، " + qs[0].classes
+            presence_classes = str(instance.title) + "\n" + qs[0].classes
             qs.update(classes = presence_classes)
 post_save.connect(set_presence_classes,sender=Class)     
 
@@ -113,7 +110,7 @@ post_save.connect(set_presence_classes,sender=Class)
 def set_private_online_classes(sender, instance, created, *args, **kwrags):
     qs = Coach.objects.filter(id=instance.coach.id)
     if str(instance.title) not in qs[0].classes:
-            presence_classes = str(instance.title) + "، " + qs[0].classes
+            presence_classes = str(instance.title) + "\n" + qs[0].classes
             qs.update(classes = presence_classes)
 post_save.connect(set_private_online_classes,sender=PrivateOnlineClass)  
 
@@ -122,6 +119,6 @@ def set_public_online_classes(sender, instance, created, *args, **kwrags):
     qs = Coach.objects.filter(id=instance.coach.id)
     if str(instance.title) not in qs[0].classes:
 
-            presence_classes = str(instance.title) + "، " + qs[0].classes
+            presence_classes = str(instance.title) + "\n" + qs[0].classes
             qs.update(classes = presence_classes)
 post_save.connect(set_public_online_classes,sender=PublicOnlineClass)  

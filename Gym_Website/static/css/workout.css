@@ -40,6 +40,14 @@ header {
           align-items: center;
 }
 
+i {
+  color: #ff1919;
+}
+
+i:hover {
+  color: white;
+}
+
 .navbar-brand,
 .navbar-brand2 {
   color: #ff1919 !important;
@@ -120,10 +128,6 @@ header {
   width: 100%;
 }
 
-i {
-  color: #ff1919;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -149,7 +153,7 @@ i {
   color: white;
   position: relative;
   white-space: nowrap;
-  padding: 0 20px;
+  padding: 3px 20px;
   margin: 10px 0;
 }
 
@@ -294,28 +298,6 @@ i {
 
 .login input[type="submit"]:focus, .login input[type="submit"]:active {
   outline: none;
-}
-
-.login .form-header {
-  background-color: #ff1919;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 65px;
-  font-size: 40px;
-  padding-left: 25px;
-}
-
-.login .form-header i {
-  color: black;
-  font-size: 50px;
-  margin: 0 15px;
 }
 
 footer {
@@ -533,6 +515,10 @@ footer [class*="col-"] {
   font-size: calc(0.5vw + 11px);
 }
 
+.banner .page-address span i:hover {
+  color: #ff1919;
+}
+
 .banner::after {
   content: "";
   position: absolute;
@@ -577,6 +563,46 @@ footer [class*="col-"] {
   margin-bottom: 1em;
   padding-bottom: 10px;
   border-bottom: solid 5px #5f5f5f;
+}
+
+.scrollup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 30px;
+  opacity: 0;
+  background-color: #ff1919;
+  position: fixed;
+  bottom: 30px;
+  right: 32px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.scrollup:hover {
+  text-decoration: none;
+}
+
+.scrollup i {
+  color: white;
+}
+
+.scrollup.active {
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: translateY(-55px);
+          transform: translateY(-55px);
 }
 
 html {
@@ -646,46 +672,6 @@ html {
 .workout .workout-info .workout-info-header h3 {
   font-weight: bolder;
   font-size: calc(20px + 0.5vw);
-}
-
-.scrollup {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  font-size: 30px;
-  opacity: 0;
-  background-color: #ff1919;
-  position: fixed;
-  bottom: 30px;
-  right: 32px;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  z-index: 99999;
-  pointer-events: none;
-}
-
-.scrollup:hover {
-  text-decoration: none;
-}
-
-.scrollup i {
-  color: white;
-}
-
-.scrollup.active {
-  pointer-events: auto;
-  opacity: 1;
-  -webkit-transform: translateY(-55px);
-          transform: translateY(-55px);
 }
 
 @media (max-width: 768px) {

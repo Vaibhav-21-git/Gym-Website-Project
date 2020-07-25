@@ -47,7 +47,6 @@ def m2m_changed_presence_receiver(sender, instance, action, *args, **kwargs):
     if action == 'post_add' or action == 'post_remove' or action == 'post_clear':
         selected_class = instance.selected_class.all()
         online_selected_class = instance.online_selected_class.all()
-
         total = 0
         for x in selected_class:
             total += x.price
@@ -55,7 +54,6 @@ def m2m_changed_presence_receiver(sender, instance, action, *args, **kwargs):
             total += y.price
         instance.total = total
         instance.save()
-
 m2m_changed.connect(m2m_changed_presence_receiver, sender=Cart.selected_class.through)
 
 
@@ -63,7 +61,6 @@ def m2m_changed_online_receiver(sender, instance, action, *args, **kwargs):
     if action == 'post_add' or action == 'post_remove' or action == 'post_clear':
         selected_class = instance.selected_class.all()
         online_selected_class = instance.online_selected_class.all()
-
         total = 0
         for x in selected_class:
             total += x.price
@@ -71,7 +68,5 @@ def m2m_changed_online_receiver(sender, instance, action, *args, **kwargs):
             total += y.price
         instance.total = total
         instance.save()
-
-
 m2m_changed.connect(m2m_changed_online_receiver, sender=Cart.online_selected_class.through)
 

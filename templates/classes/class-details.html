@@ -7,7 +7,7 @@
 <section>
   <div class="banner" style="background-image: url('{{ banner.image.url }}');">
     {% include 'partials/alerts.html' with x="50" %}
-    <h1>{{ banner.title }}</h1>
+    <h1 data-aos="fade-up" data-aos-duration="800">{{ banner.title }}</h1>
     <div class="page-address">
       <span><i class="fa fa-home"></i></span>
       <span> جزئیات کلاس </span>
@@ -36,7 +36,6 @@
     <div class="col-md-4 coach-info">
       <div class="coach-header">
         <h3>{{ details.coach.name }}</h3>
-
         {% if details.coach.info_1 %}
         <p>{{ details.coach.info_1 }}</p>
         {% endif %}
@@ -52,29 +51,12 @@
         {% if details.coach.info_4 %}
         <p>{{ details.coach.info_4 }}</p>
         {% endif %}
-
+        <h4>سابقه همکاری: {{ details.coach.hire_date | timesince }}</h4>
       </div>
-      <table class="coach-table mx-auto">
-        <tr>
-          <th>سن</th>
-          <td>{{ details.coach.age }}</td>
-        </tr>
+ 
+        
+          
 
-        <tr>
-          <th>قد</th>
-          <td>{{ details.coach.height }}</td>
-        </tr>
-
-        <tr>
-          <th>وزن</th>
-          <td>{{ details.coach.weight }}</td>
-        </tr>
-
-        <tr>
-          <th>سابقه همکاری</th>
-          <td>{{ details.coach.hire_date | timesince }}</td>
-        </tr>
-      </table>
 
       <div class="coach-social">
         <a {% if details.coach.instagram_link %} href="{{details.coach.instagram_link}}" {% else %} href="#"

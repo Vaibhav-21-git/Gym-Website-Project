@@ -57,6 +57,10 @@ section {
   font-size: calc(0.5vw + 11px);
 }
 
+.banner .page-address span i:hover {
+  color: #ff1919;
+}
+
 .banner::after {
   content: "";
   position: absolute;
@@ -284,6 +288,14 @@ header {
           align-items: center;
 }
 
+i {
+  color: #ff1919;
+}
+
+i:hover {
+  color: white;
+}
+
 .navbar-brand,
 .navbar-brand2 {
   color: #ff1919 !important;
@@ -364,10 +376,6 @@ header {
   width: 100%;
 }
 
-i {
-  color: #ff1919;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -393,7 +401,7 @@ i {
   color: white;
   position: relative;
   white-space: nowrap;
-  padding: 0 20px;
+  padding: 3px 20px;
   margin: 10px 0;
 }
 
@@ -538,28 +546,6 @@ i {
 
 .login input[type="submit"]:focus, .login input[type="submit"]:active {
   outline: none;
-}
-
-.login .form-header {
-  background-color: #ff1919;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 65px;
-  font-size: 40px;
-  padding-left: 25px;
-}
-
-.login .form-header i {
-  color: black;
-  font-size: 50px;
-  margin: 0 15px;
 }
 
 .registers-table {

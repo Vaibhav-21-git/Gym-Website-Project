@@ -16,6 +16,10 @@
     span {
       padding: 3px;
       font-size: calc(0.5vw + 11px);
+
+      i:hover{
+       color: $SecondColor;
+      }
     }
   }
   &::after {

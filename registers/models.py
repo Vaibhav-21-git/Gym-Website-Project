@@ -82,13 +82,7 @@ def add_dates(sender, instance, *args, **kwrags):
         if instance.register_date is None and instance.expiration_date is None:
             instance.register_date = date.today()
             instance.expiration_date = date.today() + timedelta(days=1)
-
 pre_save.connect(add_dates, sender=Register)
-
-
-
-
-
 
 
 
@@ -108,7 +102,6 @@ def post_save_cart_total(sender, instance, created, *args, **kwargs):
         if qs.count() == 1:
             register_obj = qs.first()
             register_obj.update_total()
-
 post_save.connect(post_save_cart_total, sender=Cart)
 
 
@@ -116,9 +109,7 @@ post_save.connect(post_save_cart_total, sender=Cart)
 def post_save_register(sender, instance, created, *args, **kwrags):
     if created:
         instance.update_total()
-
 post_save.connect(post_save_register, sender=Register)
-
 
 
 
@@ -126,5 +117,4 @@ def change_cart_status(sender, instance, *args, **kwargs):
     if instance.status == "پرداخت شده":
         qs = Cart.objects.filter(id=instance.cart.id)
         qs.update(terminated=True)
-
 post_save.connect(change_cart_status, sender=Register)

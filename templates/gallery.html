@@ -5,7 +5,7 @@
   <section>
     <div class="banner"style="background-image: url('{{ banner.image.url }}');">
       {% include 'partials/alerts.html' with x="50" %}
-      <h1>{{banner.title}} </h1>
+      <h1 data-aos="fade-up" data-aos-duration="800">{{banner.title}} </h1>
       <div class="page-address">
         <span><i class="fa fa-home"></i></span>
         <span>گالری</span>
@@ -24,12 +24,12 @@
         همه
       </button>
       {% for class in classes %}
-      <button type="button" class="filter filter-check"  data-rel="{{ forloop.counter }}" name="filter" onclick="filterActive(event)">{{ class.title }}</button>
+      <button type="button" class="filter filter-check"  data-rel="{{ class.title }}" name="filter" onclick="filterActive(event)">{{ class.title }}</button>
       {% endfor %}
-      <button type="button" class="filter filter-check" data-rel="{{ buffet }}" name="filter" onclick="filterActive(event)">
+      <button type="button" class="filter filter-check" data-rel="buffet" name="filter" onclick="filterActive(event)">
         بوفه
       </button>
-      <button type="button" class="filter filter-check" data-rel="{{ gym }}" name="filter" onclick="filterActive(event)">
+      <button type="button" class="filter filter-check" data-rel="gym" name="filter" onclick="filterActive(event)">
         محیط باشگاه
       </button>
 </form>

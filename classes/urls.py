@@ -1,9 +1,7 @@
 from . import views
 from django.urls import path
 
-
 urlpatterns = [
-
     path('presence_classes', views.presence_classes, name='presence_classes'),
     path('presence_classes/<int:class_id>', views.class_details, name='class_details'),
     path('private_classes', views.private_classes, name='private_classes'),

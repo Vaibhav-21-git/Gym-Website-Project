@@ -19,7 +19,6 @@ class CarouselBanner(models.Model):
 
 
 class Banner(models.Model):
-
     class Pages(models.TextChoices):
             page_1 = 'presence_class', "کلاس های حضوری"
             page_2 = 'online_private_class', "کلاس های انلاین خصوصی"
@@ -34,8 +33,7 @@ class Banner(models.Model):
             page_11 = 'online_private_class_details', "جزئیات کلاس انلاین خصوصی"
             page_12 = 'online_public_class_details',"جزئیات کلاس انلاین عمومی"
             page_13 = 'presence_class_details',"جزئیات کلاس حضوری"
-            
-    
+                
     image = models.ImageField(upload_to='banners/pages_banners/%Y/%m/%d')
     title = models.CharField(max_length=100)
     page = models.CharField(max_length=100,choices=Pages.choices,unique=True)

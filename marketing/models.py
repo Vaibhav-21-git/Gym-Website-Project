@@ -29,7 +29,6 @@ class GuestMarketing(models.Model):
 def marketing_create_receiver(sender, instance, created, *args, **kwrags):
     if created:
         status_code, response_data = Mailchimp().subscribe(instance.user.email)
-
 post_save.connect(marketing_create_receiver,sender=Marketing)
 
 
@@ -48,8 +47,6 @@ def marketing_update_receiver(sender, instance, *args, **kwrags):
             instance.subscribed = False
             instance.mailchimp_subscribed = False
             instance.mailchimp_msg = response_data
-
-
 pre_save.connect(marketing_update_receiver,sender=Marketing)     
 
 
@@ -57,7 +54,6 @@ pre_save.connect(marketing_update_receiver,sender=Marketing)
 def make_marketing_receiver(sender, instance, created, *args, **kwrags):
     if created:
         Marketing.objects.get_or_create(user=instance)
-
 post_save.connect(make_marketing_receiver,sender=settings.AUTH_USER_MODEL)
 
 

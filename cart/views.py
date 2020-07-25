@@ -49,8 +49,6 @@ def cart_add(request):
                         active_cart_info.append(i.title)
     
             cart_obj, new_obj = Cart.objects.new_or_get(user)
-           
-
 
             if class_obj in cart_obj.selected_class.all() and class_obj.title not in active_cart_info:
                 cart_obj.selected_class.remove(class_obj)
@@ -58,11 +56,6 @@ def cart_add(request):
             elif class_obj not in cart_obj.selected_class.all() and class_obj.title not in active_cart_info:
                 cart_obj.selected_class.add(class_obj)
                 added = True
-
-               
-
-
-
 
         if request.is_ajax:
             json_data = {
@@ -108,10 +101,6 @@ def online_cart_add(request):
                 else:
                     cart_obj.online_selected_class.add(class_obj)
                     added = True
-               
-
-
-
 
         if request.is_ajax:
             json_data = {

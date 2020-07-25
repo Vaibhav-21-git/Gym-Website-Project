@@ -89,9 +89,6 @@ def search(request):
         if display_type == "advanced":
             [queryset_list.append(x) for x in advanced_query if x not in queryset_list]
 
-
-
-
     context = {
         'workouts' : workouts,
         'queryset_list' : queryset_list,

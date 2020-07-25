@@ -20,8 +20,8 @@
   
         img{
             border-radius: 50%;
-            width: 120px;
-            height: 120px;
+            width: calc(100px + 1vw);
+            height: calc(100px + 1vw);
        
             border: $SecondColor solid 3px;
         }
@@ -29,7 +29,7 @@
         p{
             margin-top: 10px ;
             color: $SecondColor;
-            font-size: calc(18px + 0.5vw);
+            font-size: calc(10px + 0.7vw);
             direction: rtl;
             text-align: center;
         }
