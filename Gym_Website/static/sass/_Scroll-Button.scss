@@ -30,3 +30,14 @@
     opacity: 1;
     transform: translateY(-55px);
   }
+
+  @media (max-width:700px){
+    .scrollup{
+      height: 35px;
+      width: 35px;
+
+      i{
+        font-size: 20px;
+      }
+    }
+  }

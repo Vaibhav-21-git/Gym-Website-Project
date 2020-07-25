@@ -605,6 +605,16 @@ footer [class*="col-"] {
           transform: translateY(-55px);
 }
 
+@media (max-width: 700px) {
+  .scrollup {
+    height: 35px;
+    width: 35px;
+  }
+  .scrollup i {
+    font-size: 20px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }

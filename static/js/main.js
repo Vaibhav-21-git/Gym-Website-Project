@@ -1,4 +1,10 @@
 $(document).ready(function () {
+
+  AOS.init({
+    once: true,
+    offset: 40,
+  })
+
   $(".banner-carousel").owlCarousel({
     animateOut: "fadeOut",
     animateIn: "flipInX",
@@ -198,4 +204,3 @@ function filterActive(evt) {
 
 }
 
-AOS.init();
