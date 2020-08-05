@@ -1,24 +1,16 @@
 $(document).ready(function () {
 
-  AOS.init({
-    once: true,
-    offset: 40,
-  })
-
   $(".banner-carousel").owlCarousel({
     animateOut: "fadeOut",
     animateIn: "flipInX",
     items: 1,
     smartSpeed: 450,
     nav: true,
-
     loop: true,
     dots: false,
     mouseDrag: false,
     touchDrag: false,
   });
-
-
 
 
   $(".team-carousel").owlCarousel({
@@ -38,11 +30,11 @@ $(document).ready(function () {
   });
 
   $(".honor-carousel").owlCarousel({
-    
+
     loop: true,
     autoplay: true,
-    items:1,
-    nav:true,
+    items: 1,
+    nav: true,
   });
 
 
@@ -50,29 +42,22 @@ $(document).ready(function () {
   $(".overlay-gallery").magnificPopup({
     delegate: "a",
     type: "image",
-    closeMarkup:
-      '<button  class="mfp-close" style=" right: 8px"><img src="static/images/close.png" class="mfp-close" style="width:50px;height:50px"/></button>',
-
+    closeMarkup: '<button  class="mfp-close" style=" right: 8px"><img src="static/images/close.png" class="mfp-close" style="width:50px;height:50px"/></button>',
     gallery: {
       enabled: true,
-
-      arrowMarkup:
-        '<img class="mfp-arrow custom-mfp-arrow-%dir%" src="static/images/arrow.png" style="margin:0"/>',
-
+      arrowMarkup: '<img class="mfp-arrow custom-mfp-arrow-%dir%" src="static/images/arrow.png" style="margin:0"/>',
       tPrev: "Previous",
       tNext: "Next",
-      tCounter:
-        '<span  style="color:red; font-size:17px" class="mfp-counter">%curr% of %total%</span>',
+      tCounter: '<span  style="color:red; font-size:17px" class="mfp-counter">%curr% of %total%</span>',
     },
-
     zoom: {
       enabled: true,
       duration: 300,
       easing: "ease-in-out",
       opener: function (openerElement) {
-        return openerElement.is("img")
-          ? openerElement
-          : openerElement.find("img");
+        return openerElement.is("img") ?
+          openerElement :
+          openerElement.find("img");
       },
     },
   });
@@ -80,53 +65,30 @@ $(document).ready(function () {
   $(".pics").magnificPopup({
     delegate: "a",
     type: "image",
-    closeMarkup:
-      '<button  class="mfp-close" style=" right: 8px"><img src="../static/images/close.png" class="mfp-close" style="width:50px;height:50px"/></button>',
-
+    closeMarkup: '<button  class="mfp-close" style=" right: 8px"><img src="../static/images/close.png" class="mfp-close" style="width:50px;height:50px"/></button>',
     gallery: {
       enabled: true,
-      arrowMarkup:
-        '<img class="mfp-arrow custom-mfp-arrow-%dir%" src="../static/images/arrow.png" style="margin:0"/>',
-
+      arrowMarkup: '<img class="mfp-arrow custom-mfp-arrow-%dir%" src="../static/images/arrow.png" style="margin:0"/>',
       tPrev: "Previous",
       tNext: "Next",
-      tCounter:
-        '<span  style="color:red; font-size:17px" class="mfp-counter">%curr% of %total%</span>',
+      tCounter: '<span  style="color:red; font-size:17px" class="mfp-counter">%curr% of %total%</span>',
     },
     zoom: {
       enabled: true,
       duration: 300,
       easing: "ease-in-out",
       opener: function (openerElement) {
-        return openerElement.is("img")
-          ? openerElement
-          : openerElement.find("img");
+        return openerElement.is("img") ?
+          openerElement :
+          openerElement.find("img");
       },
     },
   });
 
-  $(".register-icon").magnificPopup({
-    type: "inline",
-    preloader: true,
-		focus: '#focus',
-    mainClass: 'mfp-fade',
-    closeMarkup:
-      '<button  class="mfp-close" style=" right: 8px;top:-1.5em"><img src="../static/images/close.png" class="mfp-close" style="width:50px;height:50px"/></button>',
-    
-  });
 
-  $(".login-icon").magnificPopup({
-    type: "inline",
-    preloader: true,
-		focus: '#focus',
-    mainClass: 'mfp-fade',
-    closeMarkup:
-      '<button  class="mfp-close" style=" right: 8px;top:-1.5em"><img src="../static/images/close.png" class="mfp-close" style="width:50px;height:50px"/></button>',   
-  });
-
-setTimeout(function(){
-  $('#message').fadeOut('slow');
-}, 3000);
+  setTimeout(function () {
+    $('#message').fadeOut('slow');
+  }, 3000);
 
 
   $(".menu").click(function () {
@@ -203,4 +165,3 @@ function filterActive(evt) {
   evt.currentTarget.className = ("filter filter-check", "active-filter filter-check");
 
 }
-
