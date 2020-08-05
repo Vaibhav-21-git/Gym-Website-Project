@@ -8,13 +8,7 @@
 
     <!-- Css Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />  
     <link rel="stylesheet" href="{% static 'css/login&register.css' %}" />
 
 </head>
@@ -46,12 +40,12 @@
             <label for="lastname">نام خانوادگی :</label>
             <div class="input">
                 <i class="fas fa-user-edit"></i>
-               <input type="text" name="last_name">       
+                <input type="text" name="last_name">
             </div>
 
             <label for="username">نام کاربری :</label>
             <div class="input">
-                <i class="fas fa-user-tag"></i> 
+                <i class="fas fa-user-tag"></i>
                 <input type="text" name="username" required>
             </div>
 
@@ -81,17 +75,12 @@
         </form>
     </div>
 
-    <a href="{% url 'index' %}" class="return">بازگشت به منوی اصلی</a>
-
+    <a href="{% url 'index' %}" class="return">بازگشت به صفحه اصلی</a>
     <div class="lower-footer">
+        
         © 2020 Copyright :
         <a href="{% url 'index' %}"> My Gym</a>
     </div>
 </body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>

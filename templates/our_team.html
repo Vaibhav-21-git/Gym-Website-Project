@@ -3,59 +3,54 @@
 {% block title %}| مربیان{% endblock %}
 {% block content %}
 
-  <!--Banner-->
-  <section>
-    <div class="banner"style="background-image: url('{{ banner.image.url }}');">
-      {% include 'partials/alerts.html' with x="50" %}
-      <h1 data-aos="fade-up" data-aos-duration="800">{{banner.title}} </h1>
-      <div class="page-address">
-        <span><i class="fa fa-home"></i></span>
-        <span>مربیان</span>
-        <span><i class="fas fa-chevron-right"></i></span>
-        <span> خانه </span>
-      </div>
+<!--Banner-->
+<section>
+  <div class="banner" style="background-image: url('{{ banner.image.url }}');">
+    {% include 'partials/alerts.html' with x="50" %}
+    <h1 data-aos="fade-up" data-aos-duration="800">{{banner.title}} </h1>
+    <div class="page-address">
+      <span><i class="fa fa-home"></i></span>
+      <span>مربیان</span>
+      <span><i class="fas fa-chevron-right"></i></span>
+      <span> خانه </span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!--Our Team-->
-
-  <section class="container-fluid">
-  {% if coaches %} 
+<!--Our Team-->
+<section class="container-fluid">
+  {% if coaches %}
   <div class="row d-flex justify-content-center">
     {% for coach in coaches %}
-        <div class="team-card col-md-3 col-sm-5 col-9">
-          <img class="team-img" src="{{ coach.photo.url }}" alt="Card image cap" />
-          <div class="team-body">
-         
-                <h3>{{ coach.name }}</h3>
-              
-                <div class="coach-social-top">
-                  <a href="{{ coach.instagram_link }}"><i class="fab fa-instagram"></i></a>
-                  <a href="{{ coach.twitter_link }}"><i class="fab fa-twitter"></i></a>
-                  <a href="{{ coach.facebook_link}}"><i class="fab fa-facebook"></i></a>
-                </div>
-                <h4>: مشخصات مربی</h4>
-                <div class="info">
-                  <p>{{ coach.info_1 }}</p>
-                  <p>{{ coach.info_2 }}</p>
-                  <p>{{ coach.info_3 }}</p>
-                  <p>{{ coach.info_4 }}</p>
-                </div>
-                <div class="class-info">
-                  <h4>: کلاس های مربی</h4>
-                  <h5>{{ coach.classes }}</h5>
-                </div>
+    <div class="team-card col-md-3 col-sm-5 col-9">
+      <img class="team-img" src="{{ coach.photo.url }}" alt="" />
+      <div class="team-body">
+        <h3>{{ coach.name }}</h3>
+        <div class="coach-social-top">
+          <a href="{{ coach.instagram_link }}"><i class="fab fa-instagram"></i></a>
+          <a href="{{ coach.twitter_link }}"><i class="fab fa-twitter"></i></a>
+          <a href="{{ coach.facebook_link}}"><i class="fab fa-facebook"></i></a>
+        </div>
+        <h4>: مشخصات مربی</h4>
+        <div class="info">
+          <p>{{ coach.info_1 }}</p>
+          <p>{{ coach.info_2 }}</p>
+          <p>{{ coach.info_3 }}</p>
+          <p>{{ coach.info_4 }}</p>
+        </div>
+        <div class="class-info">
+          <h4>: کلاس های مربی</h4>
+          <h5>{{ coach.classes }}</h5>
+        </div>
 
-                <div class="coach-social-down">
-                  <a href="{{ coach.instagram_link }}"><i class="fab fa-instagram"></i></a>
-                  <a href="{{ coach.twitter_link }}"><i class="fab fa-twitter"></i></a>
-                  <a href="{{ coach.facebook_link}}"><i class="fab fa-facebook"></i></a>
-                </div>
-  
-
-            </div>
-        </div> 
-      {% endfor %}
+        <div class="coach-social-down">
+          <a href="{{ coach.instagram_link }}"><i class="fab fa-instagram"></i></a>
+          <a href="{{ coach.twitter_link }}"><i class="fab fa-twitter"></i></a>
+          <a href="{{ coach.facebook_link}}"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
   </div>
   {% else %}
   <div class="col-md-12">
@@ -63,6 +58,7 @@
   </div>
   {% endif %}
 
+<!--Pagination-->
   <div class="row mt-4">
     <div class="col-md-12 d-flex justify-content-center">
       {% if coaches.has_other_pages %}
@@ -83,7 +79,7 @@
         </li>
         {% else %}
         <li class="page-item">
-          <a href="?page={{i}}"class="page-link">{{i}}</a>
+          <a href="?page={{i}}" class="page-link">{{i}}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -98,9 +94,7 @@
         {% endif %}
       </ul>
       {% endif %}
-      
     </div>
   </div>
-   </section>  
-
-  {% endblock %}
+</section>
+{% endblock %}

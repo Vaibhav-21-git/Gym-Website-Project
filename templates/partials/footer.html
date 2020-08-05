@@ -32,12 +32,15 @@
       </div>
 
       <div class="newsletters p-3">
-        <div class="mb-2 text-white"><h5>:از اخرین اطلاعیه های سایت باخبر شوید</h5></div>
+        <div class="mb-2 text-white">
+          <h5>:از اخرین اطلاعیه های سایت باخبر شوید</h5>
+        </div>
         <form method="POST">
           {% csrf_token %}
           <div class="input-group">
             <button type="submit" class="btn shadow-none" name="submit_footer_subscribe">تایید</button>
-            <input type="email" class="form-control text-right shadow-none" name="eamil_subscribe" placeholder="ایمیل خود را وارد کنید"/>
+            <input type="email" class="form-control text-right shadow-none" name="eamil_subscribe"
+              placeholder="ایمیل خود را وارد کنید" />
             <div class="input-group-append">
               <span class="input-group-text"><i class="fa fa-envelope"></i></span>
             </div>
@@ -51,8 +54,8 @@
         <li>
           <i class="fas fa-map-marker-alt"></i>
           <span>: آدرس ما</span>
-          {{ info.address }}        
-</li>
+          {{ info.address }}
+        </li>
         <li>
           <i class="fa fa-phone"></i>
           <span>: ایمیل</span>

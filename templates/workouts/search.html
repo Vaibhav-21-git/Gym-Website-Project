@@ -5,68 +5,68 @@
 
 <!--Search box-->
 <section class="container" style="padding-top: 12em;">
-<div class="search-box mx-auto">
-  <h1>جست و جوی تمرین</h1>
+  <div class="search-box mx-auto">
+    <h1>جست و جوی تمرین</h1>
 
-  <form action="{% url 'search' %}">
-<div class="filter">
-  <div class="checkboxes">
-    <label class="checkbox">سطح مبتدی
-      <input type="checkbox" value="beginner" name="beginner">
-      <span class="checkmark"></span>
-    </label>
-    
-    <label class="checkbox">سطح متوسط
-      <input type="checkbox" value="intermediate" name="intermediate">
-      <span class="checkmark"></span>
-    </label>
-    
-    <label class="checkbox">سطح پیشرفته
-      <input type="checkbox" value="advanced" name="advanced">
-      <span class="checkmark"></span>
-    </label>
-  </div> 
-    <select name="workouts-list">
-      <option disabled selected>نمایش بر اساس :</option>
-     {% if workouts %}
-      {% for workout in workouts %}
-      <option>{{ workout.title }}</option>
-      {% endfor %}
-     {% endif %}
-    </select>
+    <form action="{% url 'search' %}">
+      <div class="filter">
+        <div class="checkboxes">
+          <label class="checkbox">سطح مبتدی
+            <input type="checkbox" value="beginner" name="beginner">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="checkbox">سطح متوسط
+            <input type="checkbox" value="intermediate" name="intermediate">
+            <span class="checkmark"></span>
+          </label>
+
+          <label class="checkbox">سطح پیشرفته
+            <input type="checkbox" value="advanced" name="advanced">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <select name="workouts-list">
+          <option disabled selected>نمایش بر اساس :</option>
+          {% if workouts %}
+          {% for workout in workouts %}
+          <option>{{ workout.title }}</option>
+          {% endfor %}
+          {% endif %}
+        </select>
+      </div>
+      <div class="search-input mx-auto">
+        <input type="submit" value="جست و جو">
+        <input type="text" name="keywords" placeholder="Search">
+        <i class="fas fa-search"></i>
+      </div>
+    </form>
   </div>
-  <div class="search-input mx-auto">
-    <input type="submit" value="جست و جو">
-    <input type="text" name="keywords" placeholder="Search">
-    <i class="fas fa-search"></i>
-  </div>
-  </form>
-</div>
 </section>
 
-  <!--Workouts-->
-  <section class="container-fluid my-5">
-    <span class="simple-title">نتایج جست و جو</span>
+<!--Workouts-->
+<section class="container-fluid my-5">
+  <span class="simple-title">نتایج جست و جو</span>
 
-    {% for workout in queryset_list %}
-    <div class="row no-gutters workout">
-      <div class="col-md-6 workout-info order-md-2">
-        <div class="workout-info-header" style="justify-content: space-around;">
-          <h3>{{workout.title}}</h3>
-          <h3 style="font-family: Numberpile;">{{ workout.rule}}</h3>
-        </div>
-        <p>{{workout.description}}</p>
+  {% for workout in queryset_list %}
+  <div class="row no-gutters workout">
+    <div class="col-md-6 workout-info order-md-2">
+      <div class="workout-info-header" style="justify-content: space-around;">
+        <h3>{{workout.title}}</h3>
+        <h3 style="font-family: Numberpile;">{{ workout.rule}}</h3>
       </div>
-      <div class="col-md-3 workout-image order-md-1">
-        <img src="{{workout.image.url}}" alt="" />
-      </div>
+      <p>{{workout.description}}</p>
     </div>
-{% endfor%}
-  </section>
-  <!--Scroll Up Button-->
-  <a href="#" class="scrollup">
-    <i class="fas fa-chevron-up"></i>
-  </a>
+    <div class="col-md-3 workout-image order-md-1">
+      <img src="{{workout.image.url}}" alt="" />
+    </div>
+  </div>
+  {% endfor%}
+</section>
+<!--Scroll Up Button-->
+<a href="#" class="scrollup">
+  <i class="fas fa-chevron-up"></i>
+</a>
 
 
 {% endblock %}

@@ -8,12 +8,12 @@
 <section>
   <div class="banner" style="background-image: url('{{ banner.image.url }}');">
     {% include 'partials/alerts.html' with x="50" %}
-
-    <h1>{{banner.title}} </h1>
-    <span style="z-index: 2;">به پنل کاربری خود خوش آمدید {{user.username}}</span>
+    <h1 data-aos="fade-up" data-aos-duration="800">{{banner.title}} </h1>
+    <span style="z-index: 2;"  data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">به پنل کاربری خود خوش آمدید {{user.username}}</span>
   </div>
 </section>
 
+<!--Messages-->
 {% if email_messages %}
 <section class="container my-5">
   <span class="simple-title">پیام های ارسال شده</span>
@@ -40,7 +40,7 @@
 </section>
 {% endif %}
 
-
+<!--Requested Classes-->
 <section class="container">
   {% if not cart.selected_class.all and not cart.online_selected_class.all %}
   {% else %}
@@ -56,7 +56,6 @@
     </thead>
     <tbody class="registers-body">
 
-
       {% for class in cart.selected_class.all %}
       <tr class="registered-class">
         <td>{{ forloop.counter }}</td>
@@ -67,14 +66,10 @@
             {% include 'cart-remove-profile.html' with class_id=class.id id="class_id" %}
             <a class="detail" href="{% url 'class_details' class.id %}">مشاهده جزئیات</a>
           </div>
-         
         </td>
       </tr>
-
-      
       {% endfor %}
-     
-     
+
       {% for class in cart.online_selected_class.all %}
       <tr class="registered-class">
         <td>{{ forloop.counter|add:index }}</td>
@@ -82,18 +77,19 @@
         <td>{{ class.price | intcomma:False }} تومان</td>
         <td>
           <div class="buttons">
-              <form method="POST" action={% url 'update_online' %} data-endpoint="{% url 'update_online' %}" class="button-class class_form">
-                {% csrf_token %}
-                <input type="hidden" name='online_class_id' value= '{{ class.id }}'/>
-              <input class="cancel" type="submit" value="انصراف"/>      
-          </form>
+            <form method="POST" action={% url 'update_online' %} data-endpoint="{% url 'update_online' %}"
+              class="button-class class_form">
+              {% csrf_token %}
+              <input type="hidden" name='online_class_id' value='{{ class.id }}' />
+              <input class="cancel" type="submit" value="انصراف" />
+            </form>
             <a class="detail" href="{% url 'class_details' class.id %}">مشاهده جزئیات</a>
           </div>
-         
+
         </td>
       </tr>
       {% endfor %}
-      
+
     </tbody>
   </table>
 
@@ -112,6 +108,7 @@
 <!-- =================================================================== -->
 <section class="container my-5">
   <span class="simple-title">وضعیت کلاس ها</span>
+  <!--Active Classes-->
   <div id="accordion">
     <div class="card">
       <button class="collapse-button class-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
@@ -134,7 +131,7 @@
         </div>
       </div>
     </div>
-
+    <!--Expired Classes-->
     <div class="card">
       <button class="collapse-button  collapsed class-info" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="false" aria-controls="collapseTwo" id="headingTwo">
@@ -156,28 +153,26 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </section>
 
+<!--Settings-->
 <section class="container">
   <span class="simple-title">تنظیمات</span>
-<form action="{% url 'profile' %}" method="POST" class="settings">
-  {% csrf_token %}
-  <div class="subscribe">
-    <p class="ml-3 pt-3">دریافت اطلاعیه ها و خبر ها</p>
-    {% if checked %}
-    <input type="checkbox" name="subscribe_checkbox" class="ml-3" checked>
-    {% else %}
-    <input type="checkbox" name="subscribe_checkbox" class="ml-3">
-    {% endif %}
-  </div>
- 
- <label for="password">: تغییر رمز عبور</label>
-  <input type="password" name="change_password" id="password">
- 
-
-  <input type="submit" name="submit_changes" value="ذخیره" class="save my-3">
-</form>
+  <form action="{% url 'profile' %}" method="POST" class="settings">
+    {% csrf_token %}
+    <div class="subscribe">
+      <p class="ml-3 pt-3">دریافت اطلاعیه ها و خبر ها</p>
+      {% if checked %}
+      <input type="checkbox" name="subscribe_checkbox" class="ml-3" checked>
+      {% else %}
+      <input type="checkbox" name="subscribe_checkbox" class="ml-3">
+      {% endif %}
+    </div>
+    <label for="password">: تغییر رمز عبور</label>
+    <input type="password" name="change_password" id="password">
+    <input type="submit" name="submit_changes" value="ذخیره" class="save my-3">
+  </form>
 </section>
 {% endblock %}

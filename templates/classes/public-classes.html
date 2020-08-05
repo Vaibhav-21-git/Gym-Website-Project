@@ -1,52 +1,50 @@
 {% extends 'base.html' %}
 {% load humanize %}
-{% block title %}| کلاس های انلاین عمومی  {% endblock %}
+{% block title %}| کلاس های انلاین عمومی {% endblock %}
 {% block content %}
 
-  <!--Banner-->
-  <section>
-    <div class="banner" style="background-image: url('{{ banner.image.url }}');">
-      {% include 'partials/alerts.html' with x="50" %}
-      <h1 data-aos="fade-up" data-aos-duration="800">{{ banner.title }}</h1>
-      <div class="page-address">
-        <span><i class="fa fa-home"></i></span>
-        <span>کلاس های انلاین عمومی</span>
-        <span><i class="fas fa-chevron-right"></i></span>
-        <span>کلاس ها</span>
-        <span><i class="fas fa-chevron-right"></i></span>
-        <span> خانه </span>
+<!--Banner-->
+<section>
+  <div class="banner" style="background-image: url('{{ banner.image.url }}');">
+    {% include 'partials/alerts.html' with x="50" %}
+    <h1 data-aos="fade-up" data-aos-duration="800">{{ banner.title }}</h1>
+    <div class="page-address">
+      <span><i class="fa fa-home"></i></span>
+      <span>کلاس های انلاین عمومی</span>
+      <span><i class="fas fa-chevron-right"></i></span>
+      <span>کلاس ها</span>
+      <span><i class="fas fa-chevron-right"></i></span>
+      <span> خانه </span>
+    </div>
+  </div>
+</section>
+
+<!--Public Online Classes-->
+<section class="container">
+  {% if classes %}
+  <div class="classes row">
+    {% for class in classes %}
+    <div class="card-class col-md-4 col-sm-6">
+      <img src="{{ class.image.url }}" alt="" />
+      <div class="card-body">
+        <div class="card-header">
+          <h5>{{ class.workout_type }}</h5>
+          <h1>{{ class.title }}</h1>
+        </div>
+        <a class="enroll" href="{% url 'public_class_details' class.id %}">شرکت در کلاس<i class="fas fa-eye"></i></a>
       </div>
     </div>
-  </section>
+    {% endfor %}
+  </div>
 
-  <!--Public Classes-->
-  <section class="container">
-    {% if classes %} 
-     <div class="classes row">
-        {% for class in classes %}
-          <div class="card-class col-md-4 col-sm-6">
-            <img src="{{ class.image.url }}" alt="" />
-            <div class="card-body">
-              <div class="card-header">
-                <h5>{{ class.workout_type }}</h5>
-                <h1>{{ class.title }}</h1>
-              </div>               
-              <a class="enroll" href="{% url 'public_class_details' class.id %}">شرکت در کلاس<i class="fas fa-eye"></i></a>
-            </div>
-          </div>
-        {% endfor %}
-    </div>  
- 
-    {% else %}
-    <div class="col-md-12">
-      <p>هیچ کلاسی موجود نیست</p>
-    </div>
-    {% endif %}
+  {% else %}
+  <div class="col-md-12">
+    <p>هیچ کلاسی موجود نیست</p>
+  </div>
+  {% endif %}
 
-    
-  
-     <!--Paginator-->
-     
+  <!--Paginator-->
+
   <div class="row mt-4">
     <div class="col-md-12 d-flex justify-content-center">
       {% if classes.has_other_pages %}
@@ -67,7 +65,7 @@
         </li>
         {% else %}
         <li class="page-item">
-          <a href="?page={{i}}"class="page-link">{{i}}</a>
+          <a href="?page={{i}}" class="page-link">{{i}}</a>
         </li>
         {% endif %}
         {% endfor %}
@@ -82,10 +80,10 @@
         {% endif %}
       </ul>
       {% endif %}
-      
+
     </div>
   </div>
-   </section>    
-      
+</section>
+
 
 {% endblock %}

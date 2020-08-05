@@ -12,7 +12,7 @@
         <span><i class="fas fa-chevron-right"></i></span>
         <span>سطح {{ workouts.grade }}</span>
         <span><i class="fas fa-chevron-right"></i></span>
-        <span>تمرین انلاین</span>
+        <span>تمرینات خانگی</span>
         <span><i class="fas fa-chevron-right"></i></span>
         <span> خانه </span>
       </div>
@@ -25,7 +25,6 @@
   <div class="col-md-12">
     <p>هیچ تمرینی اضافه نشده است</p>
     </div>
-
 {% else %}
     {% for workout in workouts.selected_workouts.all %}
     <div class="row no-gutters workout">
@@ -46,7 +45,7 @@
   </section>
   
   <!--Scroll Up Button-->
-  <a href="#" class="scrollup">
+  <a href="#header" class="scrollup">
     <i class="fas fa-chevron-up"></i>
   </a>
 
