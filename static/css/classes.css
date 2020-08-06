@@ -763,14 +763,12 @@ footer [class*="col-"] {
   .button-class .input {
     font-size: 12px;
   }
-}
-
-.enroll {
-  font-size: 12px;
-}
-
-.enroll i {
-  font-size: 10px;
+  .enroll {
+    font-size: 12px;
+  }
+  .enroll i {
+    font-size: 10px;
+  }
 }
 
 .pagination .page-item {
