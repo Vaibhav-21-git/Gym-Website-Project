@@ -703,6 +703,10 @@ footer [class*="col-"] {
   background-color: #1b1b1b;
 }
 
+.search-box .filter select option i {
+  color: white;
+}
+
 .search-box .filter .checkboxes {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -752,6 +756,10 @@ footer [class*="col-"] {
   margin: 8px;
 }
 
+.search-box .search-input i:hover {
+  color: #ff1919;
+}
+
 @media (max-width: 910px) {
   .search-box .filter {
     -webkit-box-orient: vertical;
@@ -793,6 +801,15 @@ footer [class*="col-"] {
   margin-bottom: 1em;
   padding-bottom: 10px;
   border-bottom: solid 5px #5f5f5f;
+}
+
+@media (max-width: 700px) {
+  .parallax-title {
+    color: #f64c4c;
+    font-size: calc(12px + 3vw);
+    display: inline-block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 }
 
 .workouts {

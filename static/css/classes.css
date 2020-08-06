@@ -650,11 +650,12 @@ footer [class*="col-"] {
   border: none;
   padding: 5px 2px;
   font-size: calc(4px + 0.9vw);
+  border-left: solid #1b1b1b 2px;
+  height: 100%;
   width: 100%;
   -ms-flex-negative: 0.95;
       flex-shrink: 0.95;
-  border-left: solid #1b1b1b 2px;
-  height: 100%;
+  direction: rtl;
 }
 
 .button-class .price i {
@@ -706,6 +707,7 @@ footer [class*="col-"] {
 }
 
 .submit-span {
+  height: 100%;
   width: 100%;
 }
 
@@ -758,12 +760,17 @@ footer [class*="col-"] {
   .button-class .price i {
     font-size: 10px;
   }
-  .enroll {
+  .button-class .input {
     font-size: 12px;
   }
-  .enroll i {
-    font-size: 10px;
-  }
+}
+
+.enroll {
+  font-size: 12px;
+}
+
+.enroll i {
+  font-size: 10px;
 }
 
 .pagination .page-item {
